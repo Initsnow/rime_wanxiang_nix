@@ -2,6 +2,75 @@
 
 ## 用法
 
+### 在 `home.nix` 中使用
+
+如果你是通过 NixOS 的 `home-manager.nixosModules.home-manager` 管理 Home Manager，推荐在 flake 里通过 `home-manager.sharedModules` 统一导入模块。
+
+推荐写法：
+
+```nix
+{
+  home-manager.sharedModules = [
+    rime-wanxiang.homeManagerModules.default
+  ];
+
+  home-manager.users.initsnow = {
+    imports = [ ./home.nix ];
+  };
+}
+```
+
+这样 `home.nix` 里只需要写：
+
+```nix
+{
+  ...
+}:
+{
+  programs.rime.wanxiang = {
+    enable = true;
+    inputMethod = "fcitx5";
+    schema = "base";
+    fuzhu = "base";
+    withDict = true;
+    withGram = true;
+  };
+}
+```
+
+最后执行：
+
+```bash
+sudo nixos-rebuild switch
+```
+
+备选写法是在 `home.nix` 里直接 import 模块：
+
+```nix
+{
+  inputs,
+  ...
+}:
+{
+  imports = [
+    inputs.rime-wanxiang.homeManagerModules.default
+  ];
+
+  programs.rime.wanxiang = {
+    enable = true;
+    inputMethod = "fcitx5";
+    schema = "base";
+    fuzhu = "base";
+    withDict = true;
+    withGram = true;
+  };
+}
+```
+
+这种方式要求你的 flake 已经通过 `home-manager.extraSpecialArgs = { inherit inputs; };` 把 `inputs` 传进 `home.nix`。
+
+### 作为独立 Home Manager flake 使用
+
 在你的 flake 里引入本仓库：
 
 ```nix
