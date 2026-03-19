@@ -90,6 +90,7 @@ in
       target="${config.home.homeDirectory}/${deployDir}"
       mkdir -p "$target"
       ${pkgs.rsync}/bin/rsync -a --delete --exclude-from="${excludeFile}" "${package}/" "$target/"
+      chmod -R u+rwX "$target"
     '';
   };
 }
