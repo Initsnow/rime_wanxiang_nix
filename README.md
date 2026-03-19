@@ -6,7 +6,7 @@
 
 ```nix
 {
-  inputs.rime-wanxiang.url = "github:YOUR_NAME/rime_wanxiang_nix";
+  inputs.rime-wanxiang.url = "github:Initsnow/rime_wanxiang_nix";
 
   outputs = { nixpkgs, home-manager, rime-wanxiang, ... }: {
     homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
