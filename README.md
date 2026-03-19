@@ -17,8 +17,8 @@
           programs.rime.wanxiang = {
             enable = true;
             inputMethod = "fcitx5";
-            schema = "pro";
-            fuzhu = "flypy";
+            schema = "base";
+            fuzhu = "base";
             withDict = true;
             withGram = true;
           };
@@ -63,10 +63,7 @@ Rime 部署目录，相对 `$HOME`。不填时默认：
 `programs.rime.wanxiang.schema`
 
 - `"base"`
-- `"pure"`
 - `"pro"`
-
-说明：当前 `pure` 暂时复用 `base` 的上游资产。
 
 `programs.rime.wanxiang.fuzhu`
 

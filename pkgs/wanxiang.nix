@@ -84,7 +84,7 @@ let
   };
 
   resolveSchemaVariant = { schema, fuzhu }:
-    if schema == "base" || schema == "pure" then
+    if schema == "base" then
       "base"
     else if schema == "pro" then
       if fuzhu == "base" then

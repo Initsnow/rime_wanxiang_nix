@@ -38,9 +38,9 @@ in
     };
 
     schema = lib.mkOption {
-      type = lib.types.enum [ "base" "pure" "pro" ];
+      type = lib.types.enum [ "base" "pro" ];
       default = "pro";
-      description = "Schema family. `pure` currently reuses the upstream base archive.";
+      description = "Schema family.";
     };
 
     fuzhu = lib.mkOption {
