@@ -64,7 +64,10 @@ in
     excludePatterns = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [
+        "build/"
         "custom/user_exclude_file.txt"
+        "default.yaml"
+        "sync/"
         "*.userdb"
         "*.custom.yaml"
         "installation.yaml"

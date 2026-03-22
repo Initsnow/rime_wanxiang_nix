@@ -111,6 +111,12 @@ nix build .#default
 nix build .#wanxiang-base
 ```
 
+## 行为说明
+
+模块会在 `home-manager switch` 或 `nixos-rebuild switch` 的 Home Manager 激活阶段同步万象配置到 Rime 部署目录。
+
+同时默认保留 `build/`、`default.yaml`、`sync/` 和常见用户数据文件，避免后续同步把已经部署好的产物和用户数据删掉。
+
 ## 选项
 
 `programs.rime.wanxiang.enable`
@@ -160,11 +166,14 @@ Rime 部署目录，相对 `$HOME`。不填时默认：
 
 `programs.rime.wanxiang.excludePatterns`
 
-部署时保留的文件列表，默认值：
+部署时保留的文件和目录列表，默认值：
 
 ```nix
 [
+  "build/"
   "custom/user_exclude_file.txt"
+  "default.yaml"
+  "sync/"
   "*.userdb"
   "*.custom.yaml"
   "installation.yaml"
@@ -201,3 +210,4 @@ nix build .#default
 ```bash
 home-manager switch
 ```
+
