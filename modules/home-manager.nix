@@ -64,16 +64,15 @@ in
     excludePatterns = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [
-        "build/"
-        "custom/user_exclude_file.txt"
-        "default.yaml"
-        "sync/"
-        "*.userdb"
-        "*.custom.yaml"
-        "installation.yaml"
-        "user.yaml"
+        "/build/"
+        "/custom/user_exclude_file.txt"
+        "/sync/"
+        "/*.userdb"
+        "/*.custom.yaml"
+        "/installation.yaml"
+        "/user.yaml"
       ];
-      description = "Files preserved during rsync deployment.";
+      description = "Files preserved during rsync deployment. Defaults only keep local state and user overrides that are not shipped by upstream.";
     };
   };
 

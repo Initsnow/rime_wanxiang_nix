@@ -170,16 +170,17 @@ Rime 部署目录，相对 `$HOME`。不填时默认：
 
 ```nix
 [
-  "build/"
-  "custom/user_exclude_file.txt"
-  "default.yaml"
-  "sync/"
-  "*.userdb"
-  "*.custom.yaml"
-  "installation.yaml"
-  "user.yaml"
+  "/build/"
+  "/custom/user_exclude_file.txt"
+  "/sync/"
+  "/*.userdb"
+  "/*.custom.yaml"
+  "/installation.yaml"
+  "/user.yaml"
 ]
 ```
+
+这些默认项用于保留本地状态文件和用户覆写。
 
 ## 自动更新
 
