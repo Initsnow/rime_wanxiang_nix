@@ -31,9 +31,14 @@ let
     stdenvNoCC.mkDerivation {
       pname = name;
       version = "1";
-      src = fetchurl {
-        inherit (asset) url hash;
-      };
+      src = fetchurl (
+        {
+          inherit (asset) url hash;
+        }
+        // lib.optionalAttrs (asset ? curlOptsList) {
+          inherit (asset) curlOptsList;
+        }
+      );
       nativeBuildInputs = [ unzip rsync ];
       dontUnpack = true;
       installPhase = ''
@@ -79,9 +84,14 @@ let
   unpackedDict = variant:
     unpackZip "wanxiang-dict-${variant}" metadata.dict.${variant};
 
-  gramFile = fetchurl {
-    inherit (metadata.gram) url hash;
-  };
+  gramFile = fetchurl (
+    {
+      inherit (metadata.gram) url hash;
+    }
+    // lib.optionalAttrs (metadata.gram ? curlOptsList) {
+      inherit (metadata.gram) curlOptsList;
+    }
+  );
 
   resolveSchemaVariant = { schema, fuzhu }:
     if schema == "base" then

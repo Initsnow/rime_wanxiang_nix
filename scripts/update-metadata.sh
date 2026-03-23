@@ -4,11 +4,10 @@ set -euo pipefail
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 out_file="${root_dir}/nix/metadata.nix"
-tmp_dir="$(mktemp -d)"
-trap 'rm -rf "${tmp_dir}"' EXIT
 
 schema_api="https://api.github.com/repos/amzxyz/rime_wanxiang/releases"
 gram_api="https://api.github.com/repos/amzxyz/RIME-LMDG/releases"
+github_api_header="X-GitHub-Api-Version: 2022-11-28"
 
 schema_files=(
   "base:rime-wanxiang-base.zip"
@@ -36,71 +35,115 @@ to_sri() {
   nix hash convert --hash-algo sha256 --to sri "$1"
 }
 
+normalize_version() {
+  echo "$1" | tr -d ':-' | tr 'T' '-' | tr 'Z' 'Z'
+}
+
+digest_to_sri() {
+  local digest="$1"
+  local algo="${digest%%:*}"
+  local hash_hex="${digest#*:}"
+
+  if [[ "${algo}" != "sha256" ]]; then
+    echo "Unsupported digest algorithm: ${digest}" >&2
+    exit 1
+  fi
+
+  to_sri "${hash_hex}"
+}
+
+write_asset() {
+  local api_json="$1"
+  local file="$2"
+  local asset_json asset_url asset_digest hash_sri
+
+  asset_json="$(
+    jq -cer --arg file "${file}" '.assets[] | select(.name == $file)' <<<"${api_json}"
+  )"
+  asset_url="$(jq -r '.url' <<<"${asset_json}")"
+  asset_digest="$(jq -r '.digest' <<<"${asset_json}")"
+
+  if [[ -z "${asset_digest}" || "${asset_digest}" == "null" ]]; then
+    echo "Missing digest for ${file}" >&2
+    exit 1
+  fi
+
+  hash_sri="$(digest_to_sri "${asset_digest}")"
+
+  cat <<EOF
+      file = "${file}";
+      url = "${asset_url}";
+      hash = "${hash_sri}";
+      curlOptsList = [
+        "-H"
+        "Accept: application/octet-stream"
+        "-H"
+        "${github_api_header}"
+      ];
+EOF
+}
+
 write_asset_block() {
-  local kind="$1"
-  shift
+  local api_json="$1"
+  local kind="$2"
+  shift 2
   local -a items=("$@")
 
   printf "  %s = {\n" "${kind}"
-  local item key file url hash_hex hash_sri dest
+  local item key file
   for item in "${items[@]}"; do
     key="${item%%:*}"
     file="${item#*:}"
-
-    if [[ "${kind}" == "schema" ]]; then
-      url="https://github.com/amzxyz/rime_wanxiang/releases/download/${schema_tag}/${file}"
-    else
-      url="https://github.com/amzxyz/rime_wanxiang/releases/download/dict-nightly/${file}"
-    fi
-
-    dest="${tmp_dir}/${file}"
-    curl -fL --retry 3 --connect-timeout 10 -o "${dest}" "${url}" >/dev/null
-    hash_hex="$(sha256sum "${dest}" | awk '{print $1}')"
-    hash_sri="$(to_sri "${hash_hex}")"
-
-    cat <<EOF
-    ${key} = {
-      file = "${file}";
-      url = "${url}";
-      hash = "${hash_sri}";
-    };
-EOF
+    printf "    %s = {\n" "${key}"
+    write_asset "${api_json}" "${file}"
+    printf "    };\n"
   done
   printf "  };\n\n"
 }
 
-schema_tag="$(
-  curl -fsSL "${schema_api}" |
-    jq -r '[.[].tag_name | select(test("rc") | not) | select(. != "dict-nightly")] | sort_by(split(".") | map(gsub("^v"; "") | tonumber? // 0)) | last'
+schema_release_json="$(
+  curl -fsSL -H "${github_api_header}" "${schema_api}" |
+    jq -cer '[.[] | select(.tag_name != "dict-nightly") | select(.tag_name != "apk") | select(.prerelease | not) | select(.draft | not)] | sort_by(.published_at) | last'
 )"
+schema_tag="$(jq -r '.tag_name' <<<"${schema_release_json}")"
 
-gram_tag="$(
-  curl -fsSL "${gram_api}" |
-    jq -r '[.[].tag_name | select(. == "LTS")][0]'
+dict_release_json="$(
+  curl -fsSL -H "${github_api_header}" "${schema_api}/tags/dict-nightly"
 )"
+dict_version="release-$(jq -r '.id' <<<"${dict_release_json}")-$(normalize_version "$(jq -r '.updated_at' <<<"${dict_release_json}")")"
 
+gram_release_json="$(
+  curl -fsSL -H "${github_api_header}" "${gram_api}/tags/LTS"
+)"
 gram_file="wanxiang-lts-zh-hans.gram"
-gram_url="https://github.com/amzxyz/RIME-LMDG/releases/download/${gram_tag}/${gram_file}"
-gram_dest="${tmp_dir}/${gram_file}"
-curl -fL --retry 3 --connect-timeout 10 -o "${gram_dest}" "${gram_url}" >/dev/null
-gram_hex="$(sha256sum "${gram_dest}" | awk '{print $1}')"
-gram_sri="$(to_sri "${gram_hex}")"
+gram_asset_json="$(
+  jq -cer --arg file "${gram_file}" '.assets[] | select(.name == $file)' <<<"${gram_release_json}"
+)"
+gram_version="asset-$(jq -r '.id' <<<"${gram_asset_json}")"
+gram_url="$(jq -r '.url' <<<"${gram_asset_json}")"
+gram_sri="$(digest_to_sri "$(jq -r '.digest' <<<"${gram_asset_json}")")"
 
 {
   cat <<EOF
 {
   schemaVersion = "${schema_tag}";
-  dictVersion = "dict-nightly";
-  gramVersion = "${gram_tag}";
+  dictVersion = "${dict_version}";
+  gramVersion = "${gram_version}";
 
 EOF
-  write_asset_block "schema" "${schema_files[@]}"
-  write_asset_block "dict" "${dict_files[@]}"
+  write_asset_block "${schema_release_json}" "schema" "${schema_files[@]}"
+  write_asset_block "${dict_release_json}" "dict" "${dict_files[@]}"
   cat <<EOF
   gram = {
     file = "${gram_file}";
     url = "${gram_url}";
     hash = "${gram_sri}";
+    curlOptsList = [
+      "-H"
+      "Accept: application/octet-stream"
+      "-H"
+      "${github_api_header}"
+    ];
   };
 }
 EOF

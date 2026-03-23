@@ -186,14 +186,16 @@ Rime 部署目录，相对 `$HOME`。不填时默认：
 [`scripts/update-metadata.sh`](/home/initsnow/projects/rime_wanxiang_nix/scripts/update-metadata.sh#L1) 会：
 
 - 查询上游 release
-- 下载 schema / dict / gram 资产
-- 重新计算固定 hash
+- 为 schema / dict / gram 资产解析当前 release asset ID
+- 使用 asset digest 生成固定 hash
 - 重写 [`nix/metadata.nix`](/home/initsnow/projects/rime_wanxiang_nix/nix/metadata.nix#L1)
+
+其中 dict 与 gram 不再直接引用 `dict-nightly` / `LTS` 这种可变下载地址，而是固定到那次更新时对应的 GitHub release asset API URL，所以不会再因为上游覆盖同名文件而触发 hash mismatch。
 
 GitHub Actions：
 
 - [`ci.yml`](/home/initsnow/projects/rime_wanxiang_nix/.github/workflows/ci.yml#L1)：执行 `nix flake check`
-- [`update-assets.yml`](/home/initsnow/projects/rime_wanxiang_nix/.github/workflows/update-assets.yml#L1)：每月 1 日和 16 日运行一次；如果 `nix/metadata.nix` 有变化且 `flake check` 通过，就自动提交到 `main`
+- [`update-assets.yml`](/home/initsnow/projects/rime_wanxiang_nix/.github/workflows/update-assets.yml#L1)：每天自动运行一次；如果 `nix/metadata.nix` 有变化且 `flake check` 通过，就自动提交到 `main`
 
 ## 测试
 
@@ -210,4 +212,3 @@ nix build .#default
 ```bash
 home-manager switch
 ```
-
