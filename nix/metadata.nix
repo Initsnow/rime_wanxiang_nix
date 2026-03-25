@@ -1,6 +1,6 @@
 {
   schemaVersion = "v15.3.10";
-  dictVersion = "release-300510068-20260324-053046Z";
+  dictVersion = "release-300989810-20260325-041914Z";
   gramVersion = "asset-379389321";
 
   schema = {
@@ -97,8 +97,8 @@
   dict = {
     base = {
       file = "base-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234095";
-      hash = "sha256-q7vnzlSaFgFqHz6UevlOt5UnJd48gVfs7O7+0KR6V/A=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948294";
+      hash = "sha256-GkafY7wXE0b7hDEJuQ19zA6RzyCUol4XyWXzPQbBp0Y=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -108,8 +108,8 @@
     };
     flypy = {
       file = "pro-flypy-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234094";
-      hash = "sha256-iKPspkp/wtiGc+0rVuasCf+rDM2Ax1UUWJseOQJs9fE=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948293";
+      hash = "sha256-GEZpaUbaP1tI9O4OseXPoCh4HudzDmf57a6u3iGpaMg=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -119,8 +119,8 @@
     };
     hanxin = {
       file = "pro-hanxin-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234093";
-      hash = "sha256-c+R/dEtSxtW5EExORNU85bu4kYxnkA3/WQJQqQag2FU=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948289";
+      hash = "sha256-mP0f2+/kOKjpJGI5Ni31+b5OrjR+5iOIoOQYyMCbGjQ=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -130,8 +130,8 @@
     };
     moqi = {
       file = "pro-moqi-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234087";
-      hash = "sha256-7a8EcJ8vbceESdMgUmH34OQs1PPLaI32ztESlosLpRE=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948292";
+      hash = "sha256-vLkB7QAOUxmgKVDHXGIWtfBHG9mX8hZNsISdII80Z6g=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -141,8 +141,8 @@
     };
     tiger = {
       file = "pro-tiger-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234089";
-      hash = "sha256-soVjvws4rPSbiUVsaAFEzSXnnP43jsi5xfrUD5R14oE=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948287";
+      hash = "sha256-3Af/ysOUZkthtU/fKYhn0lDrVI0Ovd6aG0xTMMTnoFk=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -152,8 +152,8 @@
     };
     wubi = {
       file = "pro-wubi-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234086";
-      hash = "sha256-H4vHpFcsavTUBCAC02ghcjSEGfpJ/vsZ4k48T/Zz0fY=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948290";
+      hash = "sha256-PIS2fUuctH+vzAIG2pZu2wn+G32wH70uUVVki91O794=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -163,8 +163,8 @@
     };
     zrm = {
       file = "pro-zrm-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234085";
-      hash = "sha256-l9gu+KzOWSy/7FQK/jyiFqO235axiQ7kVlYHyyhib7k=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948284";
+      hash = "sha256-25f5RUlDCO3Yg3DoZaHpdYy7imBbFMnTA4QDzQv1TUA=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -174,8 +174,8 @@
     };
     shouyou = {
       file = "pro-shouyou-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380234092";
-      hash = "sha256-fHSH88K4GBaWPZ+vQJwgStjioBuht93tQsWVsYsW5kM=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/380948288";
+      hash = "sha256-31lEwG+YKN/seMIqra32+c3sPnuJt1ZbESTB92RH8NU=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
