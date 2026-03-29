@@ -1,13 +1,13 @@
 {
-  schemaVersion = "v15.3.11";
-  dictVersion = "release-302636906-20260328-044624Z";
-  gramVersion = "asset-379389321";
+  schemaVersion = "v15.4.1";
+  dictVersion = "release-302793524-20260329-050520Z";
+  gramVersion = "asset-383840045";
 
   schema = {
     base = {
       file = "rime-wanxiang-base.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051774";
-      hash = "sha256-sZJY+Q2Le8gOIWR4PHmPK/bF5GtxfywXFk4ZMYgPVrk=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591744";
+      hash = "sha256-SeFnHhsqf3cJ99NGyOpjLilNUuZOnvUBkeajfm94XQ4=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -17,8 +17,8 @@
     };
     flypy = {
       file = "rime-wanxiang-flypy-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051772";
-      hash = "sha256-0ToZ/beaoOwfI+xdZ0FFPONbgLKKNmPzW56By5Xq0dY=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591743";
+      hash = "sha256-6zQOoYBp89KGXEed2wSnjnJdEDxULP/Gg8ZyO3Cld7Q=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -28,8 +28,8 @@
     };
     hanxin = {
       file = "rime-wanxiang-hanxin-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051775";
-      hash = "sha256-uga9zCxxrwWsG890kIIfuUoBKqRLpYbogMZdv6nAbS4=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591742";
+      hash = "sha256-e/Ddt/btz7Ia9PLftUPdr0qAjJIBeMG8FDE4vQBl4KQ=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -39,8 +39,8 @@
     };
     moqi = {
       file = "rime-wanxiang-moqi-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051773";
-      hash = "sha256-AySn+SDcFCoc6bFnWM0ZOzOcf42AJKkeYtjIFoPBr0Q=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591741";
+      hash = "sha256-G0oXAjXpIHneRrgjQPtweA6fyeUI5hEy2tok8UK49S0=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -50,8 +50,8 @@
     };
     tiger = {
       file = "rime-wanxiang-tiger-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051799";
-      hash = "sha256-cMrJW1ug97XKRyY5NFT9d49tBWdvvtdKZNZDSXBc7dA=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591760";
+      hash = "sha256-5hD1o3OaO5DJyVJ739/qIg2M3jK2IH+iQ71aEzr03JQ=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -61,8 +61,8 @@
     };
     wubi = {
       file = "rime-wanxiang-wubi-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051801";
-      hash = "sha256-LkbHpszlvvAccQEmUUyHP9MeDFlFxZga/NKWCNeRr5Y=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591762";
+      hash = "sha256-ycIQOkjNutTnXy1bO/XcMuXlD9xDv1iNoYirNbJ0Fpw=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -72,8 +72,8 @@
     };
     zrm = {
       file = "rime-wanxiang-zrm-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051802";
-      hash = "sha256-SbgAECTR5ZHBkZuhr4qTJNFWbog+dZOURPMwCMNW44w=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591765";
+      hash = "sha256-+B+0i5fF1bBEDBzKnwza07mZp2WguepLE2wjVNGMnR8=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -83,8 +83,8 @@
     };
     shouyou = {
       file = "rime-wanxiang-shouyou-fuzhu.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/382051771";
-      hash = "sha256-A7+sLzjtNp4sMlpm08PGuMtgoxYWqtbszYSEI1cApGA=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383591745";
+      hash = "sha256-qrl5rY6puydT/dBmjMZW+KbJxQabwVXtxU8wOgonDzw=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -97,8 +97,8 @@
   dict = {
     base = {
       file = "base-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354051";
-      hash = "sha256-bjfUDLLpXdX1TdWNrRmacIER9HqB5SSLE6sZr5mp3z8=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884344";
+      hash = "sha256-oo0qDQsbYWB9ick3aXaYiGxmhKrPittwKuGEeaal7Gw=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -108,8 +108,8 @@
     };
     flypy = {
       file = "pro-flypy-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354057";
-      hash = "sha256-vW1ylV0nvIs2cg95DJKnrXP9+RaTZtFx/IqDjMaFRPQ=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884342";
+      hash = "sha256-5vND1Lkcr3rD2NVOqZmtadOJ8Yk2BeILnss6ARXUSnQ=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -119,8 +119,8 @@
     };
     hanxin = {
       file = "pro-hanxin-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354060";
-      hash = "sha256-D1uOKcemMj7hQ9JT8cf3V+XJyGrQsZMqHh8j1HQ4h3c=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884339";
+      hash = "sha256-vuwgaJL8FaDXSd9x5aZXGv7anngL2Q2SrIFzhwQntcs=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -130,8 +130,8 @@
     };
     moqi = {
       file = "pro-moqi-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354058";
-      hash = "sha256-OA/tr5PC9soq19txpm8+uWhIMpWYpewh0iVF+evJ9Pw=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884337";
+      hash = "sha256-2vGLGrD9mkW9g00uA6cfUmTVi7fRnuW/rUFJKL7BHEc=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -141,8 +141,8 @@
     };
     tiger = {
       file = "pro-tiger-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354061";
-      hash = "sha256-w2WqHxTcSbYsI9UtQ1GrMki1YqvznAeNIYNax6q4BVI=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884335";
+      hash = "sha256-5KNNs2Zf8/vZr0CWJ9YzTELAo0BRH/TpHxsjfOtDWgA=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -152,8 +152,8 @@
     };
     wubi = {
       file = "pro-wubi-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354056";
-      hash = "sha256-PxeDSGIK+JtIpNpmZs57ogOEWJeTsr3R0IO1FNr4tsU=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884340";
+      hash = "sha256-tqkJApQk/XjHVXJGgSaDfUVuOWoFPVr8fKJHg4G3iNk=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -163,8 +163,8 @@
     };
     zrm = {
       file = "pro-zrm-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354054";
-      hash = "sha256-cGiliwZ4D5TYQkrUcWri6p40IAyjh1YX3UyE2G9fqt4=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884336";
+      hash = "sha256-emS+l2V753t70zUejg76TQaT3IueO0TtnkX9Q+h11D8=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -174,8 +174,8 @@
     };
     shouyou = {
       file = "pro-shouyou-fuzhu-dicts.zip";
-      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383354052";
-      hash = "sha256-8iiprOIpQtc6yVGyPp+ToOyWeWlAD+IuA4x2ti1jmMQ=";
+      url = "https://api.github.com/repos/amzxyz/rime_wanxiang/releases/assets/383884343";
+      hash = "sha256-lAww4LERnHrKhGUSnysGtg1hQxJj00mqSF6NZ0LcQP8=";
       curlOptsList = [
         "-H"
         "Accept: application/octet-stream"
@@ -187,8 +187,8 @@
 
   gram = {
     file = "wanxiang-lts-zh-hans.gram";
-    url = "https://api.github.com/repos/amzxyz/RIME-LMDG/releases/assets/379389321";
-    hash = "sha256-SfIbCNDoOh87Wl9C60CoIqb5bhTlY751hALl34ZjBms=";
+    url = "https://api.github.com/repos/amzxyz/RIME-LMDG/releases/assets/383840045";
+    hash = "sha256-F149wSnMwI18cujis2TBgW/Z9phFU13DvHcVJbKVztA=";
     curlOptsList = [
       "-H"
       "Accept: application/octet-stream"
